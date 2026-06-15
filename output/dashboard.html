@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WNBA 2025 Season in Nine Questions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #0F0F10;
+    --bg-elevated: #18181A;
+    --bg-row-hover: #1F1F22;
+    --text: #F5F2EC;
+    --text-muted: #8A8784;
+    --text-faint: #555;
+    --border: #2A2A2D;
+    --accent: #D9580A;
+    --accent-soft: rgba(217, 88, 10, 0.15);
+    --gold: #D4A24C;
+    --negative: #C44A38;
+    --rank-shadow: rgba(217, 88, 10, 0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@font-face {
+    font-family: 'system-ui-fallback';
+    src: local('Inter'), local('-apple-system'), local('BlinkMacSystemFont');
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* STICKY NAV */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 15, 16, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sticky-nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.sticky-nav .nav-brand {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+}
+
+.sticky-nav .nav-brand:hover {
+    color: var(--text);
+}
+
+.sticky-nav .nav-chips {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.sticky-nav .nav-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.sticky-nav .nav-chip {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.6rem;
+    border-radius: 3px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.sticky-nav .nav-chip:hover {
+    color: var(--text);
+    background: var(--bg-elevated);
+}
+
+.sticky-nav .nav-chip.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+    .sticky-nav-inner {
+        padding: 0.6rem 1rem;
+        gap: 1rem;
+    }
+    .sticky-nav .nav-brand { font-size: 0.65rem; }
+    .sticky-nav .nav-chip {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.65rem;
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+@media (max-width: 720px) {
+    .container { padding: 2rem 1.25rem; }
+}
+
+/* HERO */
+.hero {
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.byline {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', 'Menlo', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+
+.byline a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.byline a:hover {
+    color: var(--text);
+    border-bottom-color: var(--text-muted);
+}
+
+/* HERO MARK (basketball icon) */
+.hero-mark {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    display: block;
+}
+
+.hero-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* STAT ICONS */
+.stat-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stat-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* SECTION DIVIDER ICON */
+.section-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.section-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.eyebrow {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', 'Menlo', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    display: inline-block;
+}
+
+.snapshot-note {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', 'Menlo', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.snapshot-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    max-width: 18ch;
+}
+
+.hero h1 .accent {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 55ch;
+    line-height: 1.6;
+}
+
+/* SUMMARY STRIP */
+.summary-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 3rem 0 5rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+    .summary-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+.summary-strip > div {
+    padding: 1.5rem 1rem;
+    border-right: 1px solid var(--border);
+}
+
+.summary-strip > div:last-child { border-right: 0; }
+
+@media (max-width: 720px) {
+    .summary-strip > div:nth-child(2) { border-right: 0; }
+    .summary-strip > div:nth-child(1),
+    .summary-strip > div:nth-child(2) { border-bottom: 1px solid var(--border); }
+}
+
+.summary-strip .number {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+.summary-strip .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+}
+
+/* QUERY SECTIONS */
+section.query {
+    margin-bottom: 5rem;
+    position: relative;
+    scroll-margin-top: 4rem;
+}
+
+.query-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.query-num {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.query-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+}
+
+.query-description {
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    max-width: 60ch;
+    font-size: 0.97rem;
+    padding-left: 2.5rem;
+}
+
+@media (max-width: 720px) {
+    .query-description { padding-left: 0; }
+}
+
+/* TABLE */
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg-elevated);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+tr:last-child td { border-bottom: 0; }
+
+th {
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    font-family: 'Inter', sans-serif;
+}
+
+td.numeric, th.numeric {
+    text-align: right;
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.88rem;
+}
+
+tbody tr {
+    transition: background 0.12s ease;
+}
+
+tbody tr:hover {
+    background: var(--bg-row-hover);
+}
+
+/* RANK BADGES */
+.rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 0.85rem;
+    flex-shrink: 0;
+    background: transparent;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+}
+
+.rank.gold {
+    background: var(--accent);
+    color: #18181A;
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--rank-shadow);
+}
+
+.rank.silver {
+    background: rgba(217, 88, 10, 0.4);
+    color: var(--text);
+    border-color: rgba(217, 88, 10, 0.4);
+}
+
+.rank.bronze {
+    background: rgba(217, 88, 10, 0.18);
+    color: var(--accent);
+    border-color: rgba(217, 88, 10, 0.35);
+}
+
+/* SPARK BARS */
+.bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    justify-content: flex-end;
+}
+
+.bar-cell .bar {
+    flex: 1;
+    max-width: 140px;
+    min-width: 50px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-cell .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: width 0.4s ease;
+}
+
+.bar-cell .bar-value {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.88rem;
+    min-width: 2.5rem;
+    text-align: right;
+}
+
+/* DIFF (positive/negative) */
+.diff {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.diff.positive { color: var(--accent); }
+.diff.negative { color: var(--negative); }
+.diff.neutral { color: var(--text-muted); }
+
+/* FOOTER */
+footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+}
+
+footer a:hover {
+    border-bottom-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="sticky-nav-inner">
+            <a href="#top" class="nav-brand">Jasmine Walker · WNBA 2025</a>
+            <div class="nav-chips">
+                <a href="#q01" class="nav-chip" data-target="q01">Q01</a>
+<a href="#q02" class="nav-chip" data-target="q02">Q02</a>
+<a href="#q03" class="nav-chip" data-target="q03">Q03</a>
+<a href="#q04" class="nav-chip" data-target="q04">Q04</a>
+<a href="#q05" class="nav-chip" data-target="q05">Q05</a>
+<a href="#q06" class="nav-chip" data-target="q06">Q06</a>
+<a href="#q07" class="nav-chip" data-target="q07">Q07</a>
+<a href="#q08" class="nav-chip" data-target="q08">Q08</a>
+<a href="#q09" class="nav-chip" data-target="q09">Q09</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="top">
+        <header class="hero">
+            <div class="byline">By <a href="https://jasminejwalker.com">Jasmine Walker</a></div>
+            <div class="hero-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
+            <div class="eyebrow">2025 Season · 9 Questions</div>
+            <h1>The 2025 WNBA season, <span class="accent">in data.</span></h1>
+            <p>A SQL-driven look at every game of the 2025 season, from the regular season through the Finals. Built with Python, SQLite, and the balldontlie API. Each section answers one question with one query.</p>
+            <div class="snapshot-note">
+                <span class="snapshot-dot"></span>
+                Snapshot · Data as of June 15, 2026
+            </div>
+        </header>
+
+        <div class="summary-strip">
+            <div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+                <div class="number">312</div>
+                <div class="label">Games</div>
+            </div>
+            <div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div>
+                <div class="number">13</div>
+                <div class="label">Active Teams</div>
+            </div>
+            <div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="number">858</div>
+                <div class="label">Players Tracked</div>
+            </div>
+            <div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
+                <div class="number">163.7</div>
+                <div class="label">Avg Total Points</div>
+            </div>
+        </div>
+
+        
+            <section class="query" id="q01">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q01</span>
+                    <h2 class="query-title">Who won the most?</h2>
+                </div>
+                <p class="query-description">Total wins for each team across the 2025 season, including playoffs.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Wins</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Las Vegas Aces</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
+            <div class="bar-value">39</div>
+        </div>
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>Minnesota Lynx</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 94.87179487179486%"></div></div>
+            <div class="bar-value">37</div>
+        </div>
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>Phoenix Mercury</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 82.05128205128204%"></div></div>
+            <div class="bar-value">32</div>
+        </div>
+    </td></tr><tr><td><span class="rank">4</span></td><td>Atlanta Dream</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 79.48717948717949%"></div></div>
+            <div class="bar-value">31</div>
+        </div>
+    </td></tr><tr><td><span class="rank">5</span></td><td>Indiana Fever</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 74.35897435897436%"></div></div>
+            <div class="bar-value">29</div>
+        </div>
+    </td></tr><tr><td><span class="rank">6</span></td><td>New York Liberty</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 71.7948717948718%"></div></div>
+            <div class="bar-value">28</div>
+        </div>
+    </td></tr><tr><td><span class="rank">7</span></td><td>Seattle Storm</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 61.53846153846154%"></div></div>
+            <div class="bar-value">24</div>
+        </div>
+    </td></tr><tr><td><span class="rank">8</span></td><td>Golden State Valkyries</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 58.97435897435898%"></div></div>
+            <div class="bar-value">23</div>
+        </div>
+    </td></tr><tr><td><span class="rank">9</span></td><td>Los Angeles Sparks</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 53.84615384615385%"></div></div>
+            <div class="bar-value">21</div>
+        </div>
+    </td></tr><tr><td><span class="rank">10</span></td><td>Washington Mystics</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 41.02564102564102%"></div></div>
+            <div class="bar-value">16</div>
+        </div>
+    </td></tr><tr><td><span class="rank">11</span></td><td>Connecticut Sun</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 28.205128205128204%"></div></div>
+            <div class="bar-value">11</div>
+        </div>
+    </td></tr><tr><td><span class="rank">12</span></td><td>Dallas Wings</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 25.64102564102564%"></div></div>
+            <div class="bar-value">10</div>
+        </div>
+    </td></tr><tr><td><span class="rank">13</span></td><td>Chicago Sky</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 25.64102564102564%"></div></div>
+            <div class="bar-value">10</div>
+        </div>
+    </td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q02">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q02</span>
+                    <h2 class="query-title">Home vs road</h2>
+                </div>
+                <p class="query-description">Where teams won and lost. Home court still matters in the W.</p>
+                <div class="table-wrap"><table><thead><tr><th>Team</th><th class="numeric">Home W</th><th class="numeric">Home L</th><th class="numeric">Road W</th><th class="numeric">Road L</th></tr></thead><tbody><tr><td>Las Vegas Aces</td><td class="numeric">23</td><td class="numeric">6</td><td class="numeric">16</td><td class="numeric">11</td></tr><tr><td>Minnesota Lynx</td><td class="numeric">22</td><td class="numeric">4</td><td class="numeric">15</td><td class="numeric">10</td></tr><tr><td>Phoenix Mercury</td><td class="numeric">18</td><td class="numeric">10</td><td class="numeric">14</td><td class="numeric">13</td></tr><tr><td>Atlanta Dream</td><td class="numeric">17</td><td class="numeric">7</td><td class="numeric">14</td><td class="numeric">9</td></tr><tr><td>Indiana Fever</td><td class="numeric">15</td><td class="numeric">10</td><td class="numeric">14</td><td class="numeric">14</td></tr><tr><td>New York Liberty</td><td class="numeric">17</td><td class="numeric">6</td><td class="numeric">11</td><td class="numeric">13</td></tr><tr><td>Seattle Storm</td><td class="numeric">11</td><td class="numeric">12</td><td class="numeric">13</td><td class="numeric">11</td></tr><tr><td>Golden State Valkyries</td><td class="numeric">14</td><td class="numeric">9</td><td class="numeric">9</td><td class="numeric">14</td></tr><tr><td>Los Angeles Sparks</td><td class="numeric">9</td><td class="numeric">13</td><td class="numeric">12</td><td class="numeric">10</td></tr><tr><td>Washington Mystics</td><td class="numeric">10</td><td class="numeric">12</td><td class="numeric">6</td><td class="numeric">16</td></tr><tr><td>Connecticut Sun</td><td class="numeric">7</td><td class="numeric">15</td><td class="numeric">4</td><td class="numeric">18</td></tr><tr><td>Dallas Wings</td><td class="numeric">6</td><td class="numeric">16</td><td class="numeric">4</td><td class="numeric">18</td></tr><tr><td>Chicago Sky</td><td class="numeric">6</td><td class="numeric">16</td><td class="numeric">4</td><td class="numeric">18</td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q03">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q03</span>
+                    <h2 class="query-title">Offense vs defense</h2>
+                </div>
+                <p class="query-description">Average points scored, allowed, and the differential. Positive means the team outscored opponents on average.</p>
+                <div class="table-wrap"><table><thead><tr><th>Team</th><th class="numeric">Scored</th><th class="numeric">Allowed</th><th class="numeric">Differential</th></tr></thead><tbody><tr><td>Minnesota Lynx</td><td class="numeric">85.2</td><td class="numeric">76.9</td><td class="numeric"><span class="diff positive">+8.3</span></td></tr><tr><td>Atlanta Dream</td><td class="numeric">83.8</td><td class="numeric">76.8</td><td class="numeric"><span class="diff positive">+7.0</span></td></tr><tr><td>Las Vegas Aces</td><td class="numeric">84.7</td><td class="numeric">81.1</td><td class="numeric"><span class="diff positive">+3.6</span></td></tr><tr><td>New York Liberty</td><td class="numeric">83.4</td><td class="numeric">80.2</td><td class="numeric"><span class="diff positive">+3.3</span></td></tr><tr><td>Indiana Fever</td><td class="numeric">84.1</td><td class="numeric">81.3</td><td class="numeric"><span class="diff positive">+2.8</span></td></tr><tr><td>Phoenix Mercury</td><td class="numeric">82.6</td><td class="numeric">80.4</td><td class="numeric"><span class="diff positive">+2.2</span></td></tr><tr><td>Seattle Storm</td><td class="numeric">81.9</td><td class="numeric">80.5</td><td class="numeric"><span class="diff positive">+1.4</span></td></tr><tr><td>Golden State Valkyries</td><td class="numeric">77.5</td><td class="numeric">76.8</td><td class="numeric"><span class="diff positive">+0.7</span></td></tr><tr><td>Los Angeles Sparks</td><td class="numeric">85.7</td><td class="numeric">88.2</td><td class="numeric"><span class="diff negative">-2.6</span></td></tr><tr><td>Washington Mystics</td><td class="numeric">77.1</td><td class="numeric">81.6</td><td class="numeric"><span class="diff negative">-4.4</span></td></tr><tr><td>Dallas Wings</td><td class="numeric">81.7</td><td class="numeric">88.0</td><td class="numeric"><span class="diff negative">-6.3</span></td></tr><tr><td>Chicago Sky</td><td class="numeric">75.8</td><td class="numeric">85.8</td><td class="numeric"><span class="diff negative">-10.0</span></td></tr><tr><td>Connecticut Sun</td><td class="numeric">75.8</td><td class="numeric">86.0</td><td class="numeric"><span class="diff negative">-10.1</span></td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q04">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q04</span>
+                    <h2 class="query-title">Biggest blowouts</h2>
+                </div>
+                <p class="query-description">The 10 games decided by the largest margins.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Margin</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>2025-08-02</td><td>LV</td><td class="numeric">58</td><td>MIN</td><td class="numeric">111</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
+            <div class="bar-value">53</div>
+        </div>
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>2025-06-01</td><td>NY</td><td class="numeric">100</td><td>CON</td><td class="numeric">52</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 90.56603773584906%"></div></div>
+            <div class="bar-value">48</div>
+        </div>
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>2025-06-29</td><td>MIN</td><td class="numeric">102</td><td>CON</td><td class="numeric">63</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 73.58490566037736%"></div></div>
+            <div class="bar-value">39</div>
+        </div>
+    </td></tr><tr><td><span class="rank">4</span></td><td>2025-07-25</td><td>CHI</td><td class="numeric">57</td><td>SEA</td><td class="numeric">95</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 71.69811320754717%"></div></div>
+            <div class="bar-value">38</div>
+        </div>
+    </td></tr><tr><td><span class="rank">5</span></td><td>2025-06-08</td><td>WSH</td><td class="numeric">104</td><td>CON</td><td class="numeric">67</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 69.81132075471697%"></div></div>
+            <div class="bar-value">37</div>
+        </div>
+    </td></tr><tr><td><span class="rank">6</span></td><td>2025-07-16</td><td>CHI</td><td class="numeric">49</td><td>ATL</td><td class="numeric">86</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 69.81132075471697%"></div></div>
+            <div class="bar-value">37</div>
+        </div>
+    </td></tr><tr><td><span class="rank">7</span></td><td>2025-08-31</td><td>GS</td><td class="numeric">99</td><td>WSH</td><td class="numeric">62</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 69.81132075471697%"></div></div>
+            <div class="bar-value">37</div>
+        </div>
+    </td></tr><tr><td><span class="rank">8</span></td><td>2025-05-17</td><td>IND</td><td class="numeric">93</td><td>CHI</td><td class="numeric">58</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 66.0377358490566%"></div></div>
+            <div class="bar-value">35</div>
+        </div>
+    </td></tr><tr><td><span class="rank">9</span></td><td>2025-08-08</td><td>PHX</td><td class="numeric">95</td><td>IND</td><td class="numeric">60</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 66.0377358490566%"></div></div>
+            <div class="bar-value">35</div>
+        </div>
+    </td></tr><tr><td><span class="rank">10</span></td><td>2025-08-22</td><td>DAL</td><td class="numeric">60</td><td>SEA</td><td class="numeric">95</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 66.0377358490566%"></div></div>
+            <div class="bar-value">35</div>
+        </div>
+    </td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q05">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q05</span>
+                    <h2 class="query-title">Closest games</h2>
+                </div>
+                <p class="query-description">The 10 nail-biters that came down to a single possession.</p>
+                <div class="table-wrap"><table><thead><tr><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Margin</th></tr></thead><tbody><tr><td>2025-05-20</td><td>IND</td><td class="numeric">90</td><td>ATL</td><td class="numeric">91</td><td class="numeric">1</td></tr><tr><td>2025-06-20</td><td>ATL</td><td class="numeric">92</td><td>WSH</td><td class="numeric">91</td><td class="numeric">1</td></tr><tr><td>2025-07-03</td><td>ATL</td><td class="numeric">79</td><td>SEA</td><td class="numeric">80</td><td class="numeric">1</td></tr><tr><td>2025-07-15</td><td>GS</td><td class="numeric">77</td><td>PHX</td><td class="numeric">78</td><td class="numeric">1</td></tr><tr><td>2025-07-31</td><td>WSH</td><td class="numeric">67</td><td>GS</td><td class="numeric">68</td><td class="numeric">1</td></tr><tr><td>2025-08-12</td><td>IND</td><td class="numeric">80</td><td>DAL</td><td class="numeric">81</td><td class="numeric">1</td></tr><tr><td>2025-08-15</td><td>DAL</td><td class="numeric">96</td><td>LA</td><td class="numeric">97</td><td class="numeric">1</td></tr><tr><td>2025-08-21</td><td>LA</td><td class="numeric">81</td><td>DAL</td><td class="numeric">80</td><td class="numeric">1</td></tr><tr><td>2025-08-30</td><td>LA</td><td class="numeric">75</td><td>IND</td><td class="numeric">76</td><td class="numeric">1</td></tr><tr><td>2025-09-10</td><td>SEA</td><td class="numeric">74</td><td>GS</td><td class="numeric">73</td><td class="numeric">1</td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q06">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q06</span>
+                    <h2 class="query-title">Regular season vs playoffs</h2>
+                </div>
+                <p class="query-description">The data confirms the cliche. Playoff games average the same scoring but tighter margins.</p>
+                <div class="table-wrap"><table><thead><tr><th>Phase</th><th class="numeric">Games</th><th class="numeric">Avg Total</th><th class="numeric">Avg Margin</th></tr></thead><tbody><tr><td>Regular Season</td><td class="numeric">288</td><td class="numeric">163.7</td><td class="numeric">12.3</td></tr><tr><td>Playoffs</td><td class="numeric">24</td><td class="numeric">163.6</td><td class="numeric">10.7</td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q07">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q07</span>
+                    <h2 class="query-title">Highest scoring games</h2>
+                </div>
+                <p class="query-description">Top 10 games by combined points. Note that game one is the WNBA All-Star Game.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Total</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>2025-07-20</td><td>CLA</td><td class="numeric">131</td><td>COL</td><td class="numeric">151</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
+            <div class="bar-value">282</div>
+        </div>
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>2025-08-02</td><td>SEA</td><td class="numeric">106</td><td>LA</td><td class="numeric">108</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 75.88652482269504%"></div></div>
+            <div class="bar-value">214</div>
+        </div>
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>2025-07-30</td><td>IND</td><td class="numeric">107</td><td>PHX</td><td class="numeric">101</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 73.75886524822694%"></div></div>
+            <div class="bar-value">208</div>
+        </div>
+    </td></tr><tr><td><span class="rank">4</span></td><td>2025-07-12</td><td>LV</td><td class="numeric">104</td><td>GS</td><td class="numeric">102</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 73.04964539007092%"></div></div>
+            <div class="bar-value">206</div>
+        </div>
+    </td></tr><tr><td><span class="rank">5</span></td><td>2025-10-01</td><td>LV</td><td class="numeric">107</td><td>IND</td><td class="numeric">98</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 72.69503546099291%"></div></div>
+            <div class="bar-value">205</div>
+        </div>
+    </td></tr><tr><td><span class="rank">6</span></td><td>2025-08-13</td><td>LA</td><td class="numeric">97</td><td>NY</td><td class="numeric">105</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 71.63120567375887%"></div></div>
+            <div class="bar-value">202</div>
+        </div>
+    </td></tr><tr><td><span class="rank">7</span></td><td>2025-07-26</td><td>NY</td><td class="numeric">99</td><td>LA</td><td class="numeric">101</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 70.92198581560284%"></div></div>
+            <div class="bar-value">200</div>
+        </div>
+    </td></tr><tr><td><span class="rank">8</span></td><td>2025-06-28</td><td>PHX</td><td class="numeric">106</td><td>NY</td><td class="numeric">91</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 69.8581560283688%"></div></div>
+            <div class="bar-value">197</div>
+        </div>
+    </td></tr><tr><td><span class="rank">9</span></td><td>2025-05-27</td><td>CON</td><td class="numeric">87</td><td>DAL</td><td class="numeric">109</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 69.50354609929079%"></div></div>
+            <div class="bar-value">196</div>
+        </div>
+    </td></tr><tr><td><span class="rank">10</span></td><td>2025-08-28</td><td>DAL</td><td class="numeric">95</td><td>CON</td><td class="numeric">101</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 69.50354609929079%"></div></div>
+            <div class="bar-value">196</div>
+        </div>
+    </td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q08">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q08</span>
+                    <h2 class="query-title">Longest win streaks</h2>
+                </div>
+                <p class="query-description">Each team's longest consecutive run of wins. Uses window functions and the gaps-and-islands pattern.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Streak</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Las Vegas Aces</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
+            <div class="bar-value">17</div>
+        </div>
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>Minnesota Lynx</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 52.94117647058824%"></div></div>
+            <div class="bar-value">9</div>
+        </div>
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>New York Liberty</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 52.94117647058824%"></div></div>
+            <div class="bar-value">9</div>
+        </div>
+    </td></tr><tr><td><span class="rank">4</span></td><td>Atlanta Dream</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 41.17647058823529%"></div></div>
+            <div class="bar-value">7</div>
+        </div>
+    </td></tr><tr><td><span class="rank">5</span></td><td>Phoenix Mercury</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 35.294117647058826%"></div></div>
+            <div class="bar-value">6</div>
+        </div>
+    </td></tr><tr><td><span class="rank">6</span></td><td>Golden State Valkyries</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 29.411764705882355%"></div></div>
+            <div class="bar-value">5</div>
+        </div>
+    </td></tr><tr><td><span class="rank">7</span></td><td>Indiana Fever</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 29.411764705882355%"></div></div>
+            <div class="bar-value">5</div>
+        </div>
+    </td></tr><tr><td><span class="rank">8</span></td><td>Los Angeles Sparks</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 29.411764705882355%"></div></div>
+            <div class="bar-value">5</div>
+        </div>
+    </td></tr><tr><td><span class="rank">9</span></td><td>Connecticut Sun</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 17.647058823529413%"></div></div>
+            <div class="bar-value">3</div>
+        </div>
+    </td></tr><tr><td><span class="rank">10</span></td><td>Seattle Storm</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 17.647058823529413%"></div></div>
+            <div class="bar-value">3</div>
+        </div>
+    </td></tr><tr><td><span class="rank">11</span></td><td>Washington Mystics</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 17.647058823529413%"></div></div>
+            <div class="bar-value">3</div>
+        </div>
+    </td></tr><tr><td><span class="rank">12</span></td><td>Chicago Sky</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 11.76470588235294%"></div></div>
+            <div class="bar-value">2</div>
+        </div>
+    </td></tr><tr><td><span class="rank">13</span></td><td>Dallas Wings</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 11.76470588235294%"></div></div>
+            <div class="bar-value">2</div>
+        </div>
+    </td></tr></tbody></table></div>
+            </section>
+        
+
+            <section class="query" id="q09">
+                <div class="query-header">
+                    
+                    <span class="query-num">Q09</span>
+                    <h2 class="query-title">Players tracked per franchise</h2>
+                </div>
+                <p class="query-description">Number of players in the database per active 2025 franchise. Includes historical players, not just the current roster.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Players</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Phoenix Mercury</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
+            <div class="bar-value">73</div>
+        </div>
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>Minnesota Lynx</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 98.63013698630137%"></div></div>
+            <div class="bar-value">72</div>
+        </div>
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>Chicago Sky</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 95.8904109589041%"></div></div>
+            <div class="bar-value">70</div>
+        </div>
+    </td></tr><tr><td><span class="rank">4</span></td><td>Dallas Wings</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 94.52054794520548%"></div></div>
+            <div class="bar-value">69</div>
+        </div>
+    </td></tr><tr><td><span class="rank">5</span></td><td>Indiana Fever</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 89.04109589041096%"></div></div>
+            <div class="bar-value">65</div>
+        </div>
+    </td></tr><tr><td><span class="rank">6</span></td><td>New York Liberty</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 89.04109589041096%"></div></div>
+            <div class="bar-value">65</div>
+        </div>
+    </td></tr><tr><td><span class="rank">7</span></td><td>Los Angeles Sparks</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 84.93150684931507%"></div></div>
+            <div class="bar-value">62</div>
+        </div>
+    </td></tr><tr><td><span class="rank">8</span></td><td>Atlanta Dream</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 80.82191780821918%"></div></div>
+            <div class="bar-value">59</div>
+        </div>
+    </td></tr><tr><td><span class="rank">9</span></td><td>Seattle Storm</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 80.82191780821918%"></div></div>
+            <div class="bar-value">59</div>
+        </div>
+    </td></tr><tr><td><span class="rank">10</span></td><td>Washington Mystics</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 80.82191780821918%"></div></div>
+            <div class="bar-value">59</div>
+        </div>
+    </td></tr><tr><td><span class="rank">11</span></td><td>Connecticut Sun</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 78.08219178082192%"></div></div>
+            <div class="bar-value">57</div>
+        </div>
+    </td></tr><tr><td><span class="rank">12</span></td><td>Las Vegas Aces</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 73.97260273972603%"></div></div>
+            <div class="bar-value">54</div>
+        </div>
+    </td></tr><tr><td><span class="rank">13</span></td><td>Golden State Valkyries</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 27.397260273972602%"></div></div>
+            <div class="bar-value">20</div>
+        </div>
+    </td></tr></tbody></table></div>
+            </section>
+        
+
+        <footer>
+            <div>Jasmine Walker · <a href="https://jasminejwalker.com">jasminejwalker.com</a></div>
+            <div>Data: <a href="https://balldontlie.io">balldontlie API</a></div>
+        </footer>
+    </div>
+    
+    <script>
+    (function() {
+        const chips = document.querySelectorAll('.nav-chip');
+        const sections = Array.from(document.querySelectorAll('section.query'));
+        if (!chips.length || !sections.length) return;
+
+        const setActive = (id) => {
+            chips.forEach(c => c.classList.toggle('active', c.dataset.target === id));
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            // Find the entry closest to the top that is intersecting
+            const visible = entries
+                .filter(e => e.isIntersecting)
+                .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+            if (visible.length > 0) {
+                setActive(visible[0].target.id);
+            }
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(s => observer.observe(s));
+    })();
+    </script>
+    
+</body>
+</html>
