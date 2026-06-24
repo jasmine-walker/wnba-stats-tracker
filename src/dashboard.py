@@ -10,7 +10,7 @@ import sqlite3
 from datetime import datetime
 
 DB_PATH = "data/wnba.db"
-OUTPUT_PATH = "output/dashboard.html"
+OUTPUT_PATH = "output/index.html"
 
 
 # Inline SVG icons. Generic basketball-themed shapes, no branded IP.
