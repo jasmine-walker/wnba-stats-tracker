@@ -1,0 +1,52 @@
+name: Refresh WNBA data
+
+# When to run
+on:
+  # Daily at 6 AM UTC (2 AM EDT / 1 AM EST)
+  schedule:
+    - cron: '0 6 * * *'
+  # Allow manual triggering from the Actions tab
+  workflow_dispatch:
+
+# What permissions the workflow needs
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetch latest WNBA data
+        env:
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+        run: python src/fetch_data.py
+
+      - name: Regenerate dashboard
+        run: python src/dashboard.py
+
+      - name: Commit and push if there are changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/wnba.db output/index.html
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily refresh: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
