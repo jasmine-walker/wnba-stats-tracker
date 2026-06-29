@@ -29,6 +29,8 @@ ICONS = {
     "calendar": '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>''',
     "chart": '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>''',
     "points": '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>''',
+    "github": '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>''',
+    "linkedin": '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>''',
 }
 
 
@@ -342,6 +344,37 @@ body {
     background: var(--accent-soft);
 }
 
+/* NAV ICONS (GitHub, LinkedIn) */
+.sticky-nav .nav-icons {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--border);
+    margin-left: 0.4rem;
+}
+
+.sticky-nav .nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--text-muted);
+    border-radius: 3px;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.sticky-nav .nav-icon:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.sticky-nav .nav-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
 @media (max-width: 720px) {
     .sticky-nav-inner {
         padding: 0.6rem 1rem;
@@ -351,6 +384,18 @@ body {
     .sticky-nav .nav-chip {
         padding: 0.3rem 0.5rem;
         font-size: 0.65rem;
+    }
+    .sticky-nav .nav-icons {
+        padding-left: 0.35rem;
+        margin-left: 0.25rem;
+    }
+    .sticky-nav .nav-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .sticky-nav .nav-icon svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
@@ -546,6 +591,68 @@ body {
     letter-spacing: 0.12em;
     color: var(--text-muted);
     margin-top: 0.4rem;
+}
+
+/* CURATOR NOTE */
+.curator-note {
+    margin: 0 0 5rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.curator-note::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.curator-note-label {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.curator-note-body {
+    max-width: 60ch;
+}
+
+.curator-note-body p {
+    color: var(--text);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+}
+
+.curator-note-body p:last-of-type {
+    margin-bottom: 0;
+}
+
+.curator-note-signoff {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border);
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.curator-note-signoff strong {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 /* QUERY SECTIONS */
@@ -971,6 +1078,10 @@ def render_dashboard():
             <div class="nav-chips">
                 {nav_chips}
             </div>
+            <div class="nav-icons">
+                <a href="https://github.com/jasmine-walker/wnba-stats-tracker" target="_blank" rel="noopener" class="nav-icon" title="GitHub">{ICONS["github"]}</a>
+                <a href="https://www.linkedin.com/in/jasminejwalker/" target="_blank" rel="noopener" class="nav-icon" title="LinkedIn">{ICONS["linkedin"]}</a>
+            </div>
         </div>
     </nav>
     <div class="container" id="top">
@@ -1008,6 +1119,17 @@ def render_dashboard():
                 <div class="label">Avg Total Points</div>
             </div>
         </div>
+
+        <section class="curator-note" id="curator-note">
+            <div class="curator-note-label">A Note From the Curator</div>
+            <div class="curator-note-body">
+                <p>Two things are true at the same time: I love women's basketball, and I am a technologist looking for my next role. This project lives at the intersection of both.</p>
+                <p>The WNBA does not get enough good data work done about it. The same fifteen storylines get recycled every season. I wanted to ask my own questions and let the data answer them.</p>
+                <p>So I built one. Nine SQL queries, one dashboard, the entire 2025 season behind it. I taught myself SQL on a dataset I already had opinions about, because window functions and CTEs are easier to learn when you are using them to settle real arguments about real teams. No editorial filter. No narrative I was trying to push. Just the questions I cared about and the answers SQL gave back.</p>
+                <p>Some answers confirmed what I already thought. A couple genuinely surprised me. That is what good data work is supposed to do.</p>
+            </div>
+            <div class="curator-note-signoff">— <strong>Jasmine Walker</strong></div>
+        </section>
 
         {sections_combined}
 
