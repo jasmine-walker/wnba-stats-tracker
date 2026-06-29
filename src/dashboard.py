@@ -37,7 +37,7 @@ ICONS = {
 QUERIES = [
     {
         "title": "Who won the most?",
-        "description": "Total wins for each team across the 2025 season, including playoffs.",
+        "description": "Total wins for each team across the 2026 season so far.",
         "sql": """
             SELECT
                 t.full_name AS Team,
@@ -48,7 +48,7 @@ QUERIES = [
                     WHEN g.home_score > g.visitor_score THEN g.home_team_id
                     ELSE g.visitor_team_id
                 END
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
               AND t.full_name NOT IN ('TEAM COLLIER', 'TEAM CLARK')
             GROUP BY t.full_name
             ORDER BY Wins DESC
@@ -67,7 +67,7 @@ QUERIES = [
                 SUM(CASE WHEN g.visitor_team_id = t.id AND g.visitor_score < g.home_score THEN 1 ELSE 0 END) AS "Road L"
             FROM teams t
             JOIN games g ON t.id IN (g.home_team_id, g.visitor_team_id)
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
               AND t.full_name NOT IN ('TEAM COLLIER', 'TEAM CLARK')
             GROUP BY t.full_name
             HAVING ("Home W" + "Home L" + "Road W" + "Road L") > 5
@@ -89,7 +89,7 @@ QUERIES = [
                 ) AS Differential
             FROM teams t
             JOIN games g ON t.id IN (g.home_team_id, g.visitor_team_id)
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
               AND t.full_name NOT IN ('TEAM COLLIER', 'TEAM CLARK')
             GROUP BY t.full_name
             HAVING COUNT(*) > 5
@@ -111,7 +111,7 @@ QUERIES = [
             FROM games g
             JOIN teams home_t ON home_t.id = g.home_team_id
             JOIN teams visitor_t ON visitor_t.id = g.visitor_team_id
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
             ORDER BY Margin DESC
             LIMIT 10
         """,
@@ -131,14 +131,14 @@ QUERIES = [
             FROM games g
             JOIN teams home_t ON home_t.id = g.home_team_id
             JOIN teams visitor_t ON visitor_t.id = g.visitor_team_id
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
             ORDER BY Margin ASC, g.date ASC
             LIMIT 10
         """,
     },
     {
         "title": "Regular season vs playoffs",
-        "description": "The data confirms the cliche. Playoff games average the same scoring but tighter margins.",
+        "description": "Comparing regular season and playoff scoring patterns. The playoff row will populate once the postseason begins.",
         "sql": """
             SELECT
                 CASE WHEN g.postseason = 1 THEN 'Playoffs' ELSE 'Regular Season' END AS Phase,
@@ -146,14 +146,14 @@ QUERIES = [
                 ROUND(AVG(g.home_score + g.visitor_score), 1) AS "Avg Total",
                 ROUND(AVG(ABS(g.home_score - g.visitor_score)), 1) AS "Avg Margin"
             FROM games g
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
             GROUP BY g.postseason
             ORDER BY g.postseason
         """,
     },
     {
         "title": "Highest scoring games",
-        "description": "Top 10 games by combined points. Note that game one is the WNBA All-Star Game.",
+        "description": "Top 10 games by combined points so far this season.",
         "sql": """
             SELECT
                 SUBSTR(g.date, 1, 10) AS Date,
@@ -165,7 +165,7 @@ QUERIES = [
             FROM games g
             JOIN teams home_t ON home_t.id = g.home_team_id
             JOIN teams visitor_t ON visitor_t.id = g.visitor_team_id
-            WHERE g.home_score IS NOT NULL
+            WHERE g.status = 'post'
             ORDER BY Total DESC
             LIMIT 10
         """,
@@ -186,7 +186,7 @@ QUERIES = [
                     END AS won
                 FROM teams t
                 JOIN games g ON t.id IN (g.home_team_id, g.visitor_team_id)
-                WHERE g.home_score IS NOT NULL
+                WHERE g.status = 'post'
                   AND t.full_name NOT IN ('TEAM COLLIER', 'TEAM CLARK')
             ),
             numbered AS (
@@ -211,13 +211,13 @@ QUERIES = [
     },
     {
         "title": "Players tracked per franchise",
-        "description": "Number of players in the database per active 2025 franchise. Includes historical players, not just the current roster.",
+        "description": "Number of players in the database per active 2026 franchise. Includes historical players, not just the current roster.",
         "sql": """
             WITH active_teams AS (
                 SELECT id FROM teams WHERE id IN (
-                    SELECT home_team_id FROM games WHERE home_score IS NOT NULL
+                    SELECT home_team_id FROM games WHERE status = 'post'
                     UNION
-                    SELECT visitor_team_id FROM games WHERE home_score IS NOT NULL
+                    SELECT visitor_team_id FROM games WHERE status = 'post'
                 )
                 AND full_name NOT IN ('TEAM COLLIER', 'TEAM CLARK')
             )
@@ -880,21 +880,21 @@ def run_query(sql):
 def get_summary_stats():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM games WHERE home_score IS NOT NULL")
+    cursor.execute("SELECT COUNT(*) FROM games WHERE status = 'post'")
     games = cursor.fetchone()[0]
     cursor.execute("SELECT COUNT(*) FROM players")
     players = cursor.fetchone()[0]
     cursor.execute("""
         SELECT COUNT(DISTINCT id) FROM teams
         WHERE id IN (
-            SELECT home_team_id FROM games WHERE home_score IS NOT NULL
+            SELECT home_team_id FROM games WHERE status = 'post'
             UNION
-            SELECT visitor_team_id FROM games WHERE home_score IS NOT NULL
+            SELECT visitor_team_id FROM games WHERE status = 'post'
         )
         AND full_name NOT IN ('TEAM COLLIER', 'TEAM CLARK')
     """)
     teams = cursor.fetchone()[0]
-    cursor.execute("SELECT ROUND(AVG(home_score + visitor_score), 1) FROM games WHERE home_score IS NOT NULL")
+    cursor.execute("SELECT ROUND(AVG(home_score + visitor_score), 1) FROM games WHERE status = 'post'")
     avg_points = cursor.fetchone()[0]
     conn.close()
     return {"games": games, "players": players, "teams": teams, "avg_points": avg_points}
@@ -1065,7 +1065,7 @@ def render_dashboard():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WNBA 2025 Season in Nine Questions</title>
+    <title>WNBA 2026 Season in Nine Questions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1074,7 +1074,7 @@ def render_dashboard():
 <body>
     <nav class="sticky-nav">
         <div class="sticky-nav-inner">
-            <a href="#top" class="nav-brand">Jasmine Walker · WNBA 2025</a>
+            <a href="#top" class="nav-brand">Jasmine Walker · WNBA 2026</a>
             <div class="nav-chips">
                 {nav_chips}
             </div>
@@ -1088,12 +1088,12 @@ def render_dashboard():
         <header class="hero">
             <div class="byline">By <a href="https://jasminejwalker.com">Jasmine Walker</a></div>
             <div class="hero-mark">{ICONS["basketball"]}</div>
-            <div class="eyebrow">2025 Season · 9 Questions</div>
-            <h1>The 2025 WNBA season, <span class="accent">in data.</span></h1>
-            <p>A SQL-driven look at every game of the 2025 season, from the regular season through the Finals. Built with Python, SQLite, and the balldontlie API. Each section answers one question with one query.</p>
+            <div class="eyebrow">2026 Season · 9 Questions · Live</div>
+            <h1>The 2026 WNBA season, <span class="accent">in data.</span></h1>
+            <p>A SQL-driven look at every game of the 2026 season, refreshed daily while it's in progress. Built with Python, SQLite, and the balldontlie API. Each section answers one question with one query.</p>
             <div class="snapshot-note">
                 <span class="snapshot-dot"></span>
-                Snapshot · Data as of {now}
+                Season in progress · Updates daily · As of {now}
             </div>
         </header>
 
@@ -1125,7 +1125,7 @@ def render_dashboard():
             <div class="curator-note-body">
                 <p>Two things are true at the same time: I love women's basketball, and I am a technologist looking for my next role. This project lives at the intersection of both.</p>
                 <p>The WNBA does not get enough good data work done about it. The same fifteen storylines get recycled every season. I wanted to ask my own questions and let the data answer them.</p>
-                <p>So I built one. Nine SQL queries, one dashboard, the entire 2025 season behind it. I taught myself SQL on a dataset I already had opinions about, because window functions and CTEs are easier to learn when you are using them to settle real arguments about real teams. No editorial filter. No narrative I was trying to push. Just the questions I cared about and the answers SQL gave back.</p>
+                <p>So I built one. Nine SQL queries, one dashboard, the entire 2026 season behind it. I taught myself SQL on a dataset I already had opinions about, because window functions and CTEs are easier to learn when you are using them to settle real arguments about real teams. No editorial filter. No narrative I was trying to push. Just the questions I cared about and the answers SQL gave back.</p>
                 <p>Some answers confirmed what I already thought. A couple genuinely surprised me. That is what good data work is supposed to do.</p>
             </div>
             <div class="curator-note-signoff">— <strong>Jasmine Walker</strong></div>

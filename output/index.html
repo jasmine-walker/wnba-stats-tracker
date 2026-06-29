@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WNBA 2025 Season in Nine Questions</title>
+    <title>WNBA 2026 Season in Nine Questions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -641,7 +641,7 @@ footer a:hover {
 <body>
     <nav class="sticky-nav">
         <div class="sticky-nav-inner">
-            <a href="#top" class="nav-brand">Jasmine Walker · WNBA 2025</a>
+            <a href="#top" class="nav-brand">Jasmine Walker · WNBA 2026</a>
             <div class="nav-chips">
                 <a href="#q01" class="nav-chip" data-target="q01">Q01</a>
 <a href="#q02" class="nav-chip" data-target="q02">Q02</a>
@@ -663,24 +663,24 @@ footer a:hover {
         <header class="hero">
             <div class="byline">By <a href="https://jasminejwalker.com">Jasmine Walker</a></div>
             <div class="hero-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
-            <div class="eyebrow">2025 Season · 9 Questions</div>
-            <h1>The 2025 WNBA season, <span class="accent">in data.</span></h1>
-            <p>A SQL-driven look at every game of the 2025 season, from the regular season through the Finals. Built with Python, SQLite, and the balldontlie API. Each section answers one question with one query.</p>
+            <div class="eyebrow">2026 Season · 9 Questions · Live</div>
+            <h1>The 2026 WNBA season, <span class="accent">in data.</span></h1>
+            <p>A SQL-driven look at every game of the 2026 season, refreshed daily while it's in progress. Built with Python, SQLite, and the balldontlie API. Each section answers one question with one query.</p>
             <div class="snapshot-note">
                 <span class="snapshot-dot"></span>
-                Snapshot · Data as of June 29, 2026
+                Season in progress · Updates daily · As of June 29, 2026
             </div>
         </header>
 
         <div class="summary-strip">
             <div>
                 <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
-                <div class="number">312</div>
+                <div class="number">144</div>
                 <div class="label">Games</div>
             </div>
             <div>
                 <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div>
-                <div class="number">13</div>
+                <div class="number">15</div>
                 <div class="label">Active Teams</div>
             </div>
             <div>
@@ -690,7 +690,7 @@ footer a:hover {
             </div>
             <div>
                 <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
-                <div class="number">163.7</div>
+                <div class="number">173.3</div>
                 <div class="label">Avg Total Points</div>
             </div>
         </div>
@@ -700,7 +700,7 @@ footer a:hover {
             <div class="curator-note-body">
                 <p>Two things are true at the same time: I love women's basketball, and I am a technologist looking for my next role. This project lives at the intersection of both.</p>
                 <p>The WNBA does not get enough good data work done about it. The same fifteen storylines get recycled every season. I wanted to ask my own questions and let the data answer them.</p>
-                <p>So I built one. Nine SQL queries, one dashboard, the entire 2025 season behind it. I taught myself SQL on a dataset I already had opinions about, because window functions and CTEs are easier to learn when you are using them to settle real arguments about real teams. No editorial filter. No narrative I was trying to push. Just the questions I cared about and the answers SQL gave back.</p>
+                <p>So I built one. Nine SQL queries, one dashboard, the entire 2026 season behind it. I taught myself SQL on a dataset I already had opinions about, because window functions and CTEs are easier to learn when you are using them to settle real arguments about real teams. No editorial filter. No narrative I was trying to push. Just the questions I cared about and the answers SQL gave back.</p>
                 <p>Some answers confirmed what I already thought. A couple genuinely surprised me. That is what good data work is supposed to do.</p>
             </div>
             <div class="curator-note-signoff">— <strong>Jasmine Walker</strong></div>
@@ -713,71 +713,81 @@ footer a:hover {
                     <span class="query-num">Q01</span>
                     <h2 class="query-title">Who won the most?</h2>
                 </div>
-                <p class="query-description">Total wins for each team across the 2025 season, including playoffs.</p>
-                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Wins</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Las Vegas Aces</td><td class="numeric">
+                <p class="query-description">Total wins for each team across the 2026 season so far.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Wins</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Minnesota Lynx</td><td class="numeric">
         <div class="bar-cell">
             <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
-            <div class="bar-value">39</div>
+            <div class="bar-value">15</div>
         </div>
-    </td></tr><tr><td><span class="rank silver">2</span></td><td>Minnesota Lynx</td><td class="numeric">
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>Las Vegas Aces</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 94.87179487179486%"></div></div>
-            <div class="bar-value">37</div>
+            <div class="bar"><div class="bar-fill" style="width: 93.33333333333333%"></div></div>
+            <div class="bar-value">14</div>
         </div>
-    </td></tr><tr><td><span class="rank bronze">3</span></td><td>Phoenix Mercury</td><td class="numeric">
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>Golden State Valkyries</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 82.05128205128204%"></div></div>
-            <div class="bar-value">32</div>
+            <div class="bar"><div class="bar-fill" style="width: 86.66666666666667%"></div></div>
+            <div class="bar-value">13</div>
         </div>
-    </td></tr><tr><td><span class="rank">4</span></td><td>Atlanta Dream</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">4</span></td><td>New York Liberty</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 79.48717948717949%"></div></div>
-            <div class="bar-value">31</div>
+            <div class="bar"><div class="bar-fill" style="width: 80.0%"></div></div>
+            <div class="bar-value">12</div>
         </div>
-    </td></tr><tr><td><span class="rank">5</span></td><td>Indiana Fever</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">5</span></td><td>Atlanta Dream</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 74.35897435897436%"></div></div>
-            <div class="bar-value">29</div>
+            <div class="bar"><div class="bar-fill" style="width: 80.0%"></div></div>
+            <div class="bar-value">12</div>
         </div>
-    </td></tr><tr><td><span class="rank">6</span></td><td>New York Liberty</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">6</span></td><td>Indiana Fever</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 71.7948717948718%"></div></div>
-            <div class="bar-value">28</div>
-        </div>
-    </td></tr><tr><td><span class="rank">7</span></td><td>Seattle Storm</td><td class="numeric">
-        <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 61.53846153846154%"></div></div>
-            <div class="bar-value">24</div>
-        </div>
-    </td></tr><tr><td><span class="rank">8</span></td><td>Golden State Valkyries</td><td class="numeric">
-        <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 58.97435897435898%"></div></div>
-            <div class="bar-value">23</div>
-        </div>
-    </td></tr><tr><td><span class="rank">9</span></td><td>Los Angeles Sparks</td><td class="numeric">
-        <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 53.84615384615385%"></div></div>
-            <div class="bar-value">21</div>
-        </div>
-    </td></tr><tr><td><span class="rank">10</span></td><td>Washington Mystics</td><td class="numeric">
-        <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 41.02564102564102%"></div></div>
-            <div class="bar-value">16</div>
-        </div>
-    </td></tr><tr><td><span class="rank">11</span></td><td>Connecticut Sun</td><td class="numeric">
-        <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 28.205128205128204%"></div></div>
+            <div class="bar"><div class="bar-fill" style="width: 73.33333333333333%"></div></div>
             <div class="bar-value">11</div>
         </div>
-    </td></tr><tr><td><span class="rank">12</span></td><td>Dallas Wings</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">7</span></td><td>Dallas Wings</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 25.64102564102564%"></div></div>
-            <div class="bar-value">10</div>
+            <div class="bar"><div class="bar-fill" style="width: 73.33333333333333%"></div></div>
+            <div class="bar-value">11</div>
+        </div>
+    </td></tr><tr><td><span class="rank">8</span></td><td>Washington Mystics</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 60.0%"></div></div>
+            <div class="bar-value">9</div>
+        </div>
+    </td></tr><tr><td><span class="rank">9</span></td><td>Tempo</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 60.0%"></div></div>
+            <div class="bar-value">9</div>
+        </div>
+    </td></tr><tr><td><span class="rank">10</span></td><td>Los Angeles Sparks</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 53.333333333333336%"></div></div>
+            <div class="bar-value">8</div>
+        </div>
+    </td></tr><tr><td><span class="rank">11</span></td><td>Fire</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 53.333333333333336%"></div></div>
+            <div class="bar-value">8</div>
+        </div>
+    </td></tr><tr><td><span class="rank">12</span></td><td>Phoenix Mercury</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 46.666666666666664%"></div></div>
+            <div class="bar-value">7</div>
         </div>
     </td></tr><tr><td><span class="rank">13</span></td><td>Chicago Sky</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 25.64102564102564%"></div></div>
-            <div class="bar-value">10</div>
+            <div class="bar"><div class="bar-fill" style="width: 40.0%"></div></div>
+            <div class="bar-value">6</div>
+        </div>
+    </td></tr><tr><td><span class="rank">14</span></td><td>Seattle Storm</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 33.33333333333333%"></div></div>
+            <div class="bar-value">5</div>
+        </div>
+    </td></tr><tr><td><span class="rank">15</span></td><td>Connecticut Sun</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 26.666666666666668%"></div></div>
+            <div class="bar-value">4</div>
         </div>
     </td></tr></tbody></table></div>
             </section>
@@ -790,7 +800,7 @@ footer a:hover {
                     <h2 class="query-title">Home vs road</h2>
                 </div>
                 <p class="query-description">Where teams won and lost. Home court still matters in the W.</p>
-                <div class="table-wrap"><table><thead><tr><th>Team</th><th class="numeric">Home W</th><th class="numeric">Home L</th><th class="numeric">Road W</th><th class="numeric">Road L</th></tr></thead><tbody><tr><td>Las Vegas Aces</td><td class="numeric">23</td><td class="numeric">6</td><td class="numeric">16</td><td class="numeric">11</td></tr><tr><td>Minnesota Lynx</td><td class="numeric">22</td><td class="numeric">4</td><td class="numeric">15</td><td class="numeric">10</td></tr><tr><td>Phoenix Mercury</td><td class="numeric">18</td><td class="numeric">10</td><td class="numeric">14</td><td class="numeric">13</td></tr><tr><td>Atlanta Dream</td><td class="numeric">17</td><td class="numeric">7</td><td class="numeric">14</td><td class="numeric">9</td></tr><tr><td>Indiana Fever</td><td class="numeric">15</td><td class="numeric">10</td><td class="numeric">14</td><td class="numeric">14</td></tr><tr><td>New York Liberty</td><td class="numeric">17</td><td class="numeric">6</td><td class="numeric">11</td><td class="numeric">13</td></tr><tr><td>Seattle Storm</td><td class="numeric">11</td><td class="numeric">12</td><td class="numeric">13</td><td class="numeric">11</td></tr><tr><td>Golden State Valkyries</td><td class="numeric">14</td><td class="numeric">9</td><td class="numeric">9</td><td class="numeric">14</td></tr><tr><td>Los Angeles Sparks</td><td class="numeric">9</td><td class="numeric">13</td><td class="numeric">12</td><td class="numeric">10</td></tr><tr><td>Washington Mystics</td><td class="numeric">10</td><td class="numeric">12</td><td class="numeric">6</td><td class="numeric">16</td></tr><tr><td>Connecticut Sun</td><td class="numeric">7</td><td class="numeric">15</td><td class="numeric">4</td><td class="numeric">18</td></tr><tr><td>Dallas Wings</td><td class="numeric">6</td><td class="numeric">16</td><td class="numeric">4</td><td class="numeric">18</td></tr><tr><td>Chicago Sky</td><td class="numeric">6</td><td class="numeric">16</td><td class="numeric">4</td><td class="numeric">18</td></tr></tbody></table></div>
+                <div class="table-wrap"><table><thead><tr><th>Team</th><th class="numeric">Home W</th><th class="numeric">Home L</th><th class="numeric">Road W</th><th class="numeric">Road L</th></tr></thead><tbody><tr><td>Minnesota Lynx</td><td class="numeric">6</td><td class="numeric">3</td><td class="numeric">9</td><td class="numeric">1</td></tr><tr><td>Las Vegas Aces</td><td class="numeric">5</td><td class="numeric">3</td><td class="numeric">9</td><td class="numeric">2</td></tr><tr><td>Golden State Valkyries</td><td class="numeric">10</td><td class="numeric">3</td><td class="numeric">3</td><td class="numeric">4</td></tr><tr><td>New York Liberty</td><td class="numeric">6</td><td class="numeric">4</td><td class="numeric">6</td><td class="numeric">4</td></tr><tr><td>Atlanta Dream</td><td class="numeric">6</td><td class="numeric">2</td><td class="numeric">6</td><td class="numeric">5</td></tr><tr><td>Indiana Fever</td><td class="numeric">8</td><td class="numeric">4</td><td class="numeric">3</td><td class="numeric">4</td></tr><tr><td>Dallas Wings</td><td class="numeric">6</td><td class="numeric">3</td><td class="numeric">5</td><td class="numeric">5</td></tr><tr><td>Washington Mystics</td><td class="numeric">3</td><td class="numeric">4</td><td class="numeric">6</td><td class="numeric">5</td></tr><tr><td>Tempo</td><td class="numeric">5</td><td class="numeric">4</td><td class="numeric">4</td><td class="numeric">6</td></tr><tr><td>Los Angeles Sparks</td><td class="numeric">3</td><td class="numeric">6</td><td class="numeric">5</td><td class="numeric">4</td></tr><tr><td>Fire</td><td class="numeric">6</td><td class="numeric">5</td><td class="numeric">2</td><td class="numeric">7</td></tr><tr><td>Phoenix Mercury</td><td class="numeric">2</td><td class="numeric">6</td><td class="numeric">5</td><td class="numeric">7</td></tr><tr><td>Chicago Sky</td><td class="numeric">3</td><td class="numeric">7</td><td class="numeric">3</td><td class="numeric">6</td></tr><tr><td>Seattle Storm</td><td class="numeric">4</td><td class="numeric">7</td><td class="numeric">1</td><td class="numeric">8</td></tr><tr><td>Connecticut Sun</td><td class="numeric">3</td><td class="numeric">7</td><td class="numeric">1</td><td class="numeric">8</td></tr></tbody></table></div>
             </section>
         
 
@@ -801,7 +811,7 @@ footer a:hover {
                     <h2 class="query-title">Offense vs defense</h2>
                 </div>
                 <p class="query-description">Average points scored, allowed, and the differential. Positive means the team outscored opponents on average.</p>
-                <div class="table-wrap"><table><thead><tr><th>Team</th><th class="numeric">Scored</th><th class="numeric">Allowed</th><th class="numeric">Differential</th></tr></thead><tbody><tr><td>Minnesota Lynx</td><td class="numeric">85.2</td><td class="numeric">76.9</td><td class="numeric"><span class="diff positive">+8.3</span></td></tr><tr><td>Atlanta Dream</td><td class="numeric">83.8</td><td class="numeric">76.8</td><td class="numeric"><span class="diff positive">+7.0</span></td></tr><tr><td>Las Vegas Aces</td><td class="numeric">84.7</td><td class="numeric">81.1</td><td class="numeric"><span class="diff positive">+3.6</span></td></tr><tr><td>New York Liberty</td><td class="numeric">83.4</td><td class="numeric">80.2</td><td class="numeric"><span class="diff positive">+3.3</span></td></tr><tr><td>Indiana Fever</td><td class="numeric">84.1</td><td class="numeric">81.3</td><td class="numeric"><span class="diff positive">+2.8</span></td></tr><tr><td>Phoenix Mercury</td><td class="numeric">82.6</td><td class="numeric">80.4</td><td class="numeric"><span class="diff positive">+2.2</span></td></tr><tr><td>Seattle Storm</td><td class="numeric">81.9</td><td class="numeric">80.5</td><td class="numeric"><span class="diff positive">+1.4</span></td></tr><tr><td>Golden State Valkyries</td><td class="numeric">77.5</td><td class="numeric">76.8</td><td class="numeric"><span class="diff positive">+0.7</span></td></tr><tr><td>Los Angeles Sparks</td><td class="numeric">85.7</td><td class="numeric">88.2</td><td class="numeric"><span class="diff negative">-2.6</span></td></tr><tr><td>Washington Mystics</td><td class="numeric">77.1</td><td class="numeric">81.6</td><td class="numeric"><span class="diff negative">-4.4</span></td></tr><tr><td>Dallas Wings</td><td class="numeric">81.7</td><td class="numeric">88.0</td><td class="numeric"><span class="diff negative">-6.3</span></td></tr><tr><td>Chicago Sky</td><td class="numeric">75.8</td><td class="numeric">85.8</td><td class="numeric"><span class="diff negative">-10.0</span></td></tr><tr><td>Connecticut Sun</td><td class="numeric">75.8</td><td class="numeric">86.0</td><td class="numeric"><span class="diff negative">-10.1</span></td></tr></tbody></table></div>
+                <div class="table-wrap"><table><thead><tr><th>Team</th><th class="numeric">Scored</th><th class="numeric">Allowed</th><th class="numeric">Differential</th></tr></thead><tbody><tr><td>Minnesota Lynx</td><td class="numeric">90.5</td><td class="numeric">79.3</td><td class="numeric"><span class="diff positive">+11.2</span></td></tr><tr><td>Golden State Valkyries</td><td class="numeric">82.8</td><td class="numeric">77.8</td><td class="numeric"><span class="diff positive">+4.9</span></td></tr><tr><td>Atlanta Dream</td><td class="numeric">88.3</td><td class="numeric">83.8</td><td class="numeric"><span class="diff positive">+4.5</span></td></tr><tr><td>New York Liberty</td><td class="numeric">87.8</td><td class="numeric">83.5</td><td class="numeric"><span class="diff positive">+4.3</span></td></tr><tr><td>Las Vegas Aces</td><td class="numeric">90.7</td><td class="numeric">86.4</td><td class="numeric"><span class="diff positive">+4.3</span></td></tr><tr><td>Indiana Fever</td><td class="numeric">93.9</td><td class="numeric">90.0</td><td class="numeric"><span class="diff positive">+3.9</span></td></tr><tr><td>Dallas Wings</td><td class="numeric">88.4</td><td class="numeric">85.6</td><td class="numeric"><span class="diff positive">+2.8</span></td></tr><tr><td>Tempo</td><td class="numeric">90.8</td><td class="numeric">91.9</td><td class="numeric"><span class="diff negative">-1.1</span></td></tr><tr><td>Phoenix Mercury</td><td class="numeric">84.0</td><td class="numeric">86.8</td><td class="numeric"><span class="diff negative">-2.8</span></td></tr><tr><td>Chicago Sky</td><td class="numeric">86.4</td><td class="numeric">89.5</td><td class="numeric"><span class="diff negative">-3.1</span></td></tr><tr><td>Washington Mystics</td><td class="numeric">82.9</td><td class="numeric">86.2</td><td class="numeric"><span class="diff negative">-3.3</span></td></tr><tr><td>Seattle Storm</td><td class="numeric">81.1</td><td class="numeric">86.2</td><td class="numeric"><span class="diff negative">-5.1</span></td></tr><tr><td>Los Angeles Sparks</td><td class="numeric">88.8</td><td class="numeric">94.3</td><td class="numeric"><span class="diff negative">-5.5</span></td></tr><tr><td>Connecticut Sun</td><td class="numeric">79.3</td><td class="numeric">86.6</td><td class="numeric"><span class="diff negative">-7.4</span></td></tr><tr><td>Fire</td><td class="numeric">84.7</td><td class="numeric">92.3</td><td class="numeric"><span class="diff negative">-7.6</span></td></tr></tbody></table></div>
             </section>
         
 
@@ -812,55 +822,55 @@ footer a:hover {
                     <h2 class="query-title">Biggest blowouts</h2>
                 </div>
                 <p class="query-description">The 10 games decided by the largest margins.</p>
-                <div class="table-wrap"><table><thead><tr><th></th><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Margin</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>2025-08-02</td><td>LV</td><td class="numeric">58</td><td>MIN</td><td class="numeric">111</td><td class="numeric">
+                <div class="table-wrap"><table><thead><tr><th></th><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Margin</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>2026-06-02</td><td>PHX</td><td class="numeric">77</td><td>MIN</td><td class="numeric">111</td><td class="numeric">
         <div class="bar-cell">
             <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
-            <div class="bar-value">53</div>
+            <div class="bar-value">34</div>
         </div>
-    </td></tr><tr><td><span class="rank silver">2</span></td><td>2025-06-01</td><td>NY</td><td class="numeric">100</td><td>CON</td><td class="numeric">52</td><td class="numeric">
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>2026-05-09</td><td>LV</td><td class="numeric">66</td><td>PHX</td><td class="numeric">99</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 90.56603773584906%"></div></div>
-            <div class="bar-value">48</div>
+            <div class="bar"><div class="bar-fill" style="width: 97.05882352941177%"></div></div>
+            <div class="bar-value">33</div>
         </div>
-    </td></tr><tr><td><span class="rank bronze">3</span></td><td>2025-06-29</td><td>MIN</td><td class="numeric">102</td><td>CON</td><td class="numeric">63</td><td class="numeric">
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>2026-06-16</td><td>MIN</td><td class="numeric">107</td><td>POR</td><td class="numeric">74</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 73.58490566037736%"></div></div>
-            <div class="bar-value">39</div>
+            <div class="bar"><div class="bar-fill" style="width: 97.05882352941177%"></div></div>
+            <div class="bar-value">33</div>
         </div>
-    </td></tr><tr><td><span class="rank">4</span></td><td>2025-07-25</td><td>CHI</td><td class="numeric">57</td><td>SEA</td><td class="numeric">95</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">4</span></td><td>2026-06-06</td><td>ATL</td><td class="numeric">109</td><td>WSH</td><td class="numeric">77</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 71.69811320754717%"></div></div>
-            <div class="bar-value">38</div>
+            <div class="bar"><div class="bar-fill" style="width: 94.11764705882352%"></div></div>
+            <div class="bar-value">32</div>
         </div>
-    </td></tr><tr><td><span class="rank">5</span></td><td>2025-06-08</td><td>WSH</td><td class="numeric">104</td><td>CON</td><td class="numeric">67</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">5</span></td><td>2026-05-08</td><td>NY</td><td class="numeric">106</td><td>CON</td><td class="numeric">75</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 69.81132075471697%"></div></div>
-            <div class="bar-value">37</div>
+            <div class="bar"><div class="bar-fill" style="width: 91.17647058823529%"></div></div>
+            <div class="bar-value">31</div>
         </div>
-    </td></tr><tr><td><span class="rank">6</span></td><td>2025-07-16</td><td>CHI</td><td class="numeric">49</td><td>ATL</td><td class="numeric">86</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">6</span></td><td>2026-06-16</td><td>DAL</td><td class="numeric">96</td><td>LV</td><td class="numeric">66</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 69.81132075471697%"></div></div>
-            <div class="bar-value">37</div>
+            <div class="bar"><div class="bar-fill" style="width: 88.23529411764706%"></div></div>
+            <div class="bar-value">30</div>
         </div>
-    </td></tr><tr><td><span class="rank">7</span></td><td>2025-08-31</td><td>GS</td><td class="numeric">99</td><td>WSH</td><td class="numeric">62</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">7</span></td><td>2026-06-26</td><td>CHI</td><td class="numeric">124</td><td>POR</td><td class="numeric">94</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 69.81132075471697%"></div></div>
-            <div class="bar-value">37</div>
+            <div class="bar"><div class="bar-fill" style="width: 88.23529411764706%"></div></div>
+            <div class="bar-value">30</div>
         </div>
-    </td></tr><tr><td><span class="rank">8</span></td><td>2025-05-17</td><td>IND</td><td class="numeric">93</td><td>CHI</td><td class="numeric">58</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">8</span></td><td>2026-05-14</td><td>CON</td><td class="numeric">69</td><td>LV</td><td class="numeric">98</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 66.0377358490566%"></div></div>
-            <div class="bar-value">35</div>
+            <div class="bar"><div class="bar-fill" style="width: 85.29411764705883%"></div></div>
+            <div class="bar-value">29</div>
         </div>
-    </td></tr><tr><td><span class="rank">9</span></td><td>2025-08-08</td><td>PHX</td><td class="numeric">95</td><td>IND</td><td class="numeric">60</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">9</span></td><td>2026-06-22</td><td>CON</td><td class="numeric">92</td><td>CHI</td><td class="numeric">63</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 66.0377358490566%"></div></div>
-            <div class="bar-value">35</div>
+            <div class="bar"><div class="bar-fill" style="width: 85.29411764705883%"></div></div>
+            <div class="bar-value">29</div>
         </div>
-    </td></tr><tr><td><span class="rank">10</span></td><td>2025-08-22</td><td>DAL</td><td class="numeric">60</td><td>SEA</td><td class="numeric">95</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">10</span></td><td>2026-05-22</td><td>MIN</td><td class="numeric">100</td><td>TOR</td><td class="numeric">72</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 66.0377358490566%"></div></div>
-            <div class="bar-value">35</div>
+            <div class="bar"><div class="bar-fill" style="width: 82.35294117647058%"></div></div>
+            <div class="bar-value">28</div>
         </div>
     </td></tr></tbody></table></div>
             </section>
@@ -873,7 +883,7 @@ footer a:hover {
                     <h2 class="query-title">Closest games</h2>
                 </div>
                 <p class="query-description">The 10 nail-biters that came down to a single possession.</p>
-                <div class="table-wrap"><table><thead><tr><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Margin</th></tr></thead><tbody><tr><td>2025-05-20</td><td>IND</td><td class="numeric">90</td><td>ATL</td><td class="numeric">91</td><td class="numeric">1</td></tr><tr><td>2025-06-20</td><td>ATL</td><td class="numeric">92</td><td>WSH</td><td class="numeric">91</td><td class="numeric">1</td></tr><tr><td>2025-07-03</td><td>ATL</td><td class="numeric">79</td><td>SEA</td><td class="numeric">80</td><td class="numeric">1</td></tr><tr><td>2025-07-15</td><td>GS</td><td class="numeric">77</td><td>PHX</td><td class="numeric">78</td><td class="numeric">1</td></tr><tr><td>2025-07-31</td><td>WSH</td><td class="numeric">67</td><td>GS</td><td class="numeric">68</td><td class="numeric">1</td></tr><tr><td>2025-08-12</td><td>IND</td><td class="numeric">80</td><td>DAL</td><td class="numeric">81</td><td class="numeric">1</td></tr><tr><td>2025-08-15</td><td>DAL</td><td class="numeric">96</td><td>LA</td><td class="numeric">97</td><td class="numeric">1</td></tr><tr><td>2025-08-21</td><td>LA</td><td class="numeric">81</td><td>DAL</td><td class="numeric">80</td><td class="numeric">1</td></tr><tr><td>2025-08-30</td><td>LA</td><td class="numeric">75</td><td>IND</td><td class="numeric">76</td><td class="numeric">1</td></tr><tr><td>2025-09-10</td><td>SEA</td><td class="numeric">74</td><td>GS</td><td class="numeric">73</td><td class="numeric">1</td></tr></tbody></table></div>
+                <div class="table-wrap"><table><thead><tr><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Margin</th></tr></thead><tbody><tr><td>2026-05-10</td><td>MIN</td><td class="numeric">90</td><td>ATL</td><td class="numeric">91</td><td class="numeric">1</td></tr><tr><td>2026-05-17</td><td>ATL</td><td class="numeric">84</td><td>LV</td><td class="numeric">85</td><td class="numeric">1</td></tr><tr><td>2026-05-19</td><td>POR</td><td class="numeric">83</td><td>CON</td><td class="numeric">82</td><td class="numeric">1</td></tr><tr><td>2026-06-12</td><td>WSH</td><td class="numeric">86</td><td>TOR</td><td class="numeric">85</td><td class="numeric">1</td></tr><tr><td>2026-06-14</td><td>POR</td><td class="numeric">84</td><td>DAL</td><td class="numeric">83</td><td class="numeric">1</td></tr><tr><td>2026-06-18</td><td>CHI</td><td class="numeric">95</td><td>NY</td><td class="numeric">96</td><td class="numeric">1</td></tr><tr><td>2026-06-21</td><td>DAL</td><td class="numeric">93</td><td>CHI</td><td class="numeric">92</td><td class="numeric">1</td></tr><tr><td>2026-06-22</td><td>LA</td><td class="numeric">98</td><td>NY</td><td class="numeric">97</td><td class="numeric">1</td></tr><tr><td>2026-06-28</td><td>WSH</td><td class="numeric">124</td><td>POR</td><td class="numeric">123</td><td class="numeric">1</td></tr><tr><td>2026-05-13</td><td>POR</td><td class="numeric">98</td><td>NY</td><td class="numeric">96</td><td class="numeric">2</td></tr></tbody></table></div>
             </section>
         
 
@@ -883,8 +893,8 @@ footer a:hover {
                     <span class="query-num">Q06</span>
                     <h2 class="query-title">Regular season vs playoffs</h2>
                 </div>
-                <p class="query-description">The data confirms the cliche. Playoff games average the same scoring but tighter margins.</p>
-                <div class="table-wrap"><table><thead><tr><th>Phase</th><th class="numeric">Games</th><th class="numeric">Avg Total</th><th class="numeric">Avg Margin</th></tr></thead><tbody><tr><td>Regular Season</td><td class="numeric">288</td><td class="numeric">163.7</td><td class="numeric">12.3</td></tr><tr><td>Playoffs</td><td class="numeric">24</td><td class="numeric">163.6</td><td class="numeric">10.7</td></tr></tbody></table></div>
+                <p class="query-description">Comparing regular season and playoff scoring patterns. The playoff row will populate once the postseason begins.</p>
+                <div class="table-wrap"><table><thead><tr><th>Phase</th><th class="numeric">Games</th><th class="numeric">Avg Total</th><th class="numeric">Avg Margin</th></tr></thead><tbody><tr><td>Regular Season</td><td class="numeric">144</td><td class="numeric">173.3</td><td class="numeric">11.7</td></tr></tbody></table></div>
             </section>
         
 
@@ -894,56 +904,56 @@ footer a:hover {
                     <span class="query-num">Q07</span>
                     <h2 class="query-title">Highest scoring games</h2>
                 </div>
-                <p class="query-description">Top 10 games by combined points. Note that game one is the WNBA All-Star Game.</p>
-                <div class="table-wrap"><table><thead><tr><th></th><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Total</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>2025-07-20</td><td>CLA</td><td class="numeric">131</td><td>COL</td><td class="numeric">151</td><td class="numeric">
+                <p class="query-description">Top 10 games by combined points so far this season.</p>
+                <div class="table-wrap"><table><thead><tr><th></th><th>Date</th><th>Home</th><th class="numeric">Home Score</th><th>Away</th><th class="numeric">Away Score</th><th class="numeric">Total</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>2026-06-28</td><td>WSH</td><td class="numeric">124</td><td>POR</td><td class="numeric">123</td><td class="numeric">
         <div class="bar-cell">
             <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
-            <div class="bar-value">282</div>
+            <div class="bar-value">247</div>
         </div>
-    </td></tr><tr><td><span class="rank silver">2</span></td><td>2025-08-02</td><td>SEA</td><td class="numeric">106</td><td>LA</td><td class="numeric">108</td><td class="numeric">
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>2026-06-23</td><td>SEA</td><td class="numeric">110</td><td>DAL</td><td class="numeric">112</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 75.88652482269504%"></div></div>
-            <div class="bar-value">214</div>
+            <div class="bar"><div class="bar-fill" style="width: 89.87854251012146%"></div></div>
+            <div class="bar-value">222</div>
         </div>
-    </td></tr><tr><td><span class="rank bronze">3</span></td><td>2025-07-30</td><td>IND</td><td class="numeric">107</td><td>PHX</td><td class="numeric">101</td><td class="numeric">
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>2026-06-25</td><td>TOR</td><td class="numeric">125</td><td>LA</td><td class="numeric">97</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 73.75886524822694%"></div></div>
-            <div class="bar-value">208</div>
+            <div class="bar"><div class="bar-fill" style="width: 89.87854251012146%"></div></div>
+            <div class="bar-value">222</div>
         </div>
-    </td></tr><tr><td><span class="rank">4</span></td><td>2025-07-12</td><td>LV</td><td class="numeric">104</td><td>GS</td><td class="numeric">102</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">4</span></td><td>2026-06-11</td><td>IND</td><td class="numeric">114</td><td>CHI</td><td class="numeric">106</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 73.04964539007092%"></div></div>
-            <div class="bar-value">206</div>
+            <div class="bar"><div class="bar-fill" style="width: 89.06882591093117%"></div></div>
+            <div class="bar-value">220</div>
         </div>
-    </td></tr><tr><td><span class="rank">5</span></td><td>2025-10-01</td><td>LV</td><td class="numeric">107</td><td>IND</td><td class="numeric">98</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">5</span></td><td>2026-06-24</td><td>IND</td><td class="numeric">109</td><td>PHX</td><td class="numeric">111</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 72.69503546099291%"></div></div>
-            <div class="bar-value">205</div>
+            <div class="bar"><div class="bar-fill" style="width: 89.06882591093117%"></div></div>
+            <div class="bar-value">220</div>
         </div>
-    </td></tr><tr><td><span class="rank">6</span></td><td>2025-08-13</td><td>LA</td><td class="numeric">97</td><td>NY</td><td class="numeric">105</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">6</span></td><td>2026-06-26</td><td>CHI</td><td class="numeric">124</td><td>POR</td><td class="numeric">94</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 71.63120567375887%"></div></div>
-            <div class="bar-value">202</div>
+            <div class="bar"><div class="bar-fill" style="width: 88.25910931174089%"></div></div>
+            <div class="bar-value">218</div>
         </div>
-    </td></tr><tr><td><span class="rank">7</span></td><td>2025-07-26</td><td>NY</td><td class="numeric">99</td><td>LA</td><td class="numeric">101</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">7</span></td><td>2026-05-28</td><td>CHI</td><td class="numeric">104</td><td>TOR</td><td class="numeric">111</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 70.92198581560284%"></div></div>
-            <div class="bar-value">200</div>
+            <div class="bar"><div class="bar-fill" style="width: 87.04453441295547%"></div></div>
+            <div class="bar-value">215</div>
         </div>
-    </td></tr><tr><td><span class="rank">8</span></td><td>2025-06-28</td><td>PHX</td><td class="numeric">106</td><td>NY</td><td class="numeric">91</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">8</span></td><td>2026-06-14</td><td>PHX</td><td class="numeric">102</td><td>LA</td><td class="numeric">111</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 69.8581560283688%"></div></div>
-            <div class="bar-value">197</div>
+            <div class="bar"><div class="bar-fill" style="width: 86.23481781376519%"></div></div>
+            <div class="bar-value">213</div>
         </div>
-    </td></tr><tr><td><span class="rank">9</span></td><td>2025-05-27</td><td>CON</td><td class="numeric">87</td><td>DAL</td><td class="numeric">109</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">9</span></td><td>2026-05-09</td><td>IND</td><td class="numeric">104</td><td>DAL</td><td class="numeric">107</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 69.50354609929079%"></div></div>
-            <div class="bar-value">196</div>
+            <div class="bar"><div class="bar-fill" style="width: 85.4251012145749%"></div></div>
+            <div class="bar-value">211</div>
         </div>
-    </td></tr><tr><td><span class="rank">10</span></td><td>2025-08-28</td><td>DAL</td><td class="numeric">95</td><td>CON</td><td class="numeric">101</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">10</span></td><td>2026-06-18</td><td>IND</td><td class="numeric">101</td><td>ATL</td><td class="numeric">108</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 69.50354609929079%"></div></div>
-            <div class="bar-value">196</div>
+            <div class="bar"><div class="bar-fill" style="width: 84.61538461538461%"></div></div>
+            <div class="bar-value">209</div>
         </div>
     </td></tr></tbody></table></div>
             </section>
@@ -956,69 +966,79 @@ footer a:hover {
                     <h2 class="query-title">Longest win streaks</h2>
                 </div>
                 <p class="query-description">Each team's longest consecutive run of wins. Uses window functions and the gaps-and-islands pattern.</p>
-                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Streak</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Las Vegas Aces</td><td class="numeric">
+                <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Streak</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Minnesota Lynx</td><td class="numeric">
         <div class="bar-cell">
             <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
-            <div class="bar-value">17</div>
+            <div class="bar-value">8</div>
         </div>
-    </td></tr><tr><td><span class="rank silver">2</span></td><td>Minnesota Lynx</td><td class="numeric">
+    </td></tr><tr><td><span class="rank silver">2</span></td><td>New York Liberty</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 52.94117647058824%"></div></div>
-            <div class="bar-value">9</div>
+            <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
+            <div class="bar-value">8</div>
         </div>
-    </td></tr><tr><td><span class="rank bronze">3</span></td><td>New York Liberty</td><td class="numeric">
+    </td></tr><tr><td><span class="rank bronze">3</span></td><td>Las Vegas Aces</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 52.94117647058824%"></div></div>
-            <div class="bar-value">9</div>
+            <div class="bar"><div class="bar-fill" style="width: 75.0%"></div></div>
+            <div class="bar-value">6</div>
         </div>
     </td></tr><tr><td><span class="rank">4</span></td><td>Atlanta Dream</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 41.17647058823529%"></div></div>
-            <div class="bar-value">7</div>
+            <div class="bar"><div class="bar-fill" style="width: 50.0%"></div></div>
+            <div class="bar-value">4</div>
         </div>
-    </td></tr><tr><td><span class="rank">5</span></td><td>Phoenix Mercury</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">5</span></td><td>Dallas Wings</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 35.294117647058826%"></div></div>
-            <div class="bar-value">6</div>
+            <div class="bar"><div class="bar-fill" style="width: 50.0%"></div></div>
+            <div class="bar-value">4</div>
         </div>
     </td></tr><tr><td><span class="rank">6</span></td><td>Golden State Valkyries</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 29.411764705882355%"></div></div>
-            <div class="bar-value">5</div>
+            <div class="bar"><div class="bar-fill" style="width: 50.0%"></div></div>
+            <div class="bar-value">4</div>
         </div>
     </td></tr><tr><td><span class="rank">7</span></td><td>Indiana Fever</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 29.411764705882355%"></div></div>
-            <div class="bar-value">5</div>
+            <div class="bar"><div class="bar-fill" style="width: 50.0%"></div></div>
+            <div class="bar-value">4</div>
         </div>
-    </td></tr><tr><td><span class="rank">8</span></td><td>Los Angeles Sparks</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">8</span></td><td>Fire</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 29.411764705882355%"></div></div>
-            <div class="bar-value">5</div>
-        </div>
-    </td></tr><tr><td><span class="rank">9</span></td><td>Connecticut Sun</td><td class="numeric">
-        <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 17.647058823529413%"></div></div>
+            <div class="bar"><div class="bar-fill" style="width: 37.5%"></div></div>
             <div class="bar-value">3</div>
         </div>
-    </td></tr><tr><td><span class="rank">10</span></td><td>Seattle Storm</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">9</span></td><td>Los Angeles Sparks</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 17.647058823529413%"></div></div>
+            <div class="bar"><div class="bar-fill" style="width: 37.5%"></div></div>
             <div class="bar-value">3</div>
         </div>
-    </td></tr><tr><td><span class="rank">11</span></td><td>Washington Mystics</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">10</span></td><td>Washington Mystics</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 17.647058823529413%"></div></div>
+            <div class="bar"><div class="bar-fill" style="width: 37.5%"></div></div>
             <div class="bar-value">3</div>
         </div>
-    </td></tr><tr><td><span class="rank">12</span></td><td>Chicago Sky</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">11</span></td><td>Chicago Sky</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 11.76470588235294%"></div></div>
+            <div class="bar"><div class="bar-fill" style="width: 25.0%"></div></div>
             <div class="bar-value">2</div>
         </div>
-    </td></tr><tr><td><span class="rank">13</span></td><td>Dallas Wings</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">12</span></td><td>Connecticut Sun</td><td class="numeric">
         <div class="bar-cell">
-            <div class="bar"><div class="bar-fill" style="width: 11.76470588235294%"></div></div>
+            <div class="bar"><div class="bar-fill" style="width: 25.0%"></div></div>
+            <div class="bar-value">2</div>
+        </div>
+    </td></tr><tr><td><span class="rank">13</span></td><td>Phoenix Mercury</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 25.0%"></div></div>
+            <div class="bar-value">2</div>
+        </div>
+    </td></tr><tr><td><span class="rank">14</span></td><td>Seattle Storm</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 25.0%"></div></div>
+            <div class="bar-value">2</div>
+        </div>
+    </td></tr><tr><td><span class="rank">15</span></td><td>Tempo</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 25.0%"></div></div>
             <div class="bar-value">2</div>
         </div>
     </td></tr></tbody></table></div>
@@ -1031,7 +1051,7 @@ footer a:hover {
                     <span class="query-num">Q09</span>
                     <h2 class="query-title">Players tracked per franchise</h2>
                 </div>
-                <p class="query-description">Number of players in the database per active 2025 franchise. Includes historical players, not just the current roster.</p>
+                <p class="query-description">Number of players in the database per active 2026 franchise. Includes historical players, not just the current roster.</p>
                 <div class="table-wrap"><table><thead><tr><th></th><th>Team</th><th class="numeric">Players</th></tr></thead><tbody><tr><td><span class="rank gold">1</span></td><td>Minnesota Lynx</td><td class="numeric">
         <div class="bar-cell">
             <div class="bar"><div class="bar-fill" style="width: 100.0%"></div></div>
@@ -1092,10 +1112,20 @@ footer a:hover {
             <div class="bar"><div class="bar-fill" style="width: 75.0%"></div></div>
             <div class="bar-value">54</div>
         </div>
-    </td></tr><tr><td><span class="rank">13</span></td><td>Golden State Valkyries</td><td class="numeric">
+    </td></tr><tr><td><span class="rank">13</span></td><td>Tempo</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 31.944444444444443%"></div></div>
+            <div class="bar-value">23</div>
+        </div>
+    </td></tr><tr><td><span class="rank">14</span></td><td>Golden State Valkyries</td><td class="numeric">
         <div class="bar-cell">
             <div class="bar"><div class="bar-fill" style="width: 27.77777777777778%"></div></div>
             <div class="bar-value">20</div>
+        </div>
+    </td></tr><tr><td><span class="rank">15</span></td><td>Fire</td><td class="numeric">
+        <div class="bar-cell">
+            <div class="bar"><div class="bar-fill" style="width: 25.0%"></div></div>
+            <div class="bar-value">18</div>
         </div>
     </td></tr></tbody></table></div>
             </section>

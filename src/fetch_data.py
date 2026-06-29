@@ -17,7 +17,7 @@ API_KEY = os.getenv("BALLDONTLIE_API_KEY")
 BASE_URL = "https://api.balldontlie.io/wnba/v1"
 HEADERS = {"Authorization": API_KEY}
 DB_PATH = "data/wnba.db"
-SEASON = 2025
+SEASON = 2026
 
 DELAY_BETWEEN_PAGES = 15
 DELAY_BETWEEN_ENDPOINTS = 20
